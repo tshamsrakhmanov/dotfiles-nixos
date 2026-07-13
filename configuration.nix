@@ -9,19 +9,15 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  #boot.loader.grub.device = nodev;
-  #boot.loader.grub.efiSupport = true;
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  # networking.hostName = "nixos"; # Define your hostname.
 
   # some packages like Obsidian
   nixpkgs.config.allowUnfree = true; 
 
   # tryout for dark themes
-  # TODO: not working
+  # FIXME: not working
   programs.dconf.enable = true;
   programs.dconf.profiles.user.databases = [{
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
@@ -35,8 +31,8 @@
 
   # shell aliases
   environment.shellAliases = {
-    l = "ls -lhX --group-directories-first";
-    ll = "ls -lhXA --group-directories-first";
+    l = "eza -l --color=always --group-directories-first --icons";
+    ll = "eza -al --color=always --group-directories-first --icons";
     zz = "exit";
     qq = "ps -eo pid,command | grep";
     ".." = "cd .. && l";
@@ -110,6 +106,7 @@
     btop
     nvtopPackages.full
     keepassxc
+    eza
     vlc
     libreoffice
   ];

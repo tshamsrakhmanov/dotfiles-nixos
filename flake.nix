@@ -11,6 +11,7 @@
         ./modules/shared/users.nix
         ./modules/shared/packages.nix
         ./modules/shared/defaults.nix
+        ./modules/shared/base.nix
       ];
     in {
       nixosConfigurations = {

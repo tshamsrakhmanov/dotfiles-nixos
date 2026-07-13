@@ -27,5 +27,6 @@
     # access rights for thunar
     polkit_gnome
     gvfs
+    rustup
   ];
 }

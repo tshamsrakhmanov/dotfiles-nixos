@@ -21,6 +21,22 @@
 
   # networking.hostName = "nixos"; # Define your hostname.
 
+  # some packages like Obsidian
+  nixpkgs.config.allowUnfree = true; 
+
+  programs.dconf.enable = true;
+  programs.dconf.profiles.user.databases = [{
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  }];
+
+  environment.shellAliases = {
+    l = "ls -lhX --group-directories-first";
+    ll = "ls -lhXA --group-directories-first";
+    zz = "exit";
+    qq = "ps -eo pid,command | grep";
+    ".." = "cd .. && l";
+  };
+
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
@@ -92,6 +108,9 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    yazi
+    qimgv
+    papers
     git
     github-cli
     dysk
@@ -100,12 +119,11 @@
     pavucontrol
     kitty
     python313Packages.qtile
-    i3lock-color
+    brightnessctl
+    obsidian
     btop
-    nitrogen
-    picom
-    ranger
-    xautolock
+    nvtopPackages.full
+    keepassxc
   ];
 
   # fonts.packages = with pkgs; [

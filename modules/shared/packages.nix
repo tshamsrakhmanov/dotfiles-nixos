@@ -28,5 +28,6 @@
     polkit_gnome
     gvfs
     rustup
+    firefox
   ];
 }

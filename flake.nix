@@ -10,8 +10,8 @@
       sharedModules = [
         ./modules/shared/users.nix
         ./modules/shared/packages.nix
-        ./modules/shared/defaults.nix
-        ./modules/shared/base.nix
+        ./modules/shared/system_config.nix
+        ./modules/shared/flake_enable.nix
       ];
     in {
       nixosConfigurations = {

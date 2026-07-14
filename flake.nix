@@ -12,7 +12,6 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       sharedModules = [
-        ./modules/shared/users.nix
         ./modules/shared/packages.nix
         ./modules/shared/system_config.nix
         ./modules/shared/flake_enable.nix

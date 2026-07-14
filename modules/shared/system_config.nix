@@ -27,24 +27,6 @@
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   }];
 
-  # ---------
-  # -- VIM --
-  # ---------
-  programs.vim = {
-    enable = true;
-    defaultEditor = true;
-  };
-
-  # --------------------
-  # -- SHELL ALIASES  --
-  # --------------------
-  environment.shellAliases = {
-    l = "eza -l --color=always --group-directories-first --icons";
-    ll = "eza -al --color=always --group-directories-first --icons";
-    zz = "exit";
-    qq = "ps -eo pid,command | grep";
-    ".." = "cd .. && l";
-  };
 
   # ---------------------
   # -- NTFS AUTOMOUNT  --

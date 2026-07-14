@@ -29,5 +29,6 @@
     gvfs
     rustup
     firefox
+    cmatrix
   ];
 }

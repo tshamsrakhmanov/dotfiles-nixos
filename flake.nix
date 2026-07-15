@@ -7,16 +7,18 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+   vim-config = {
+     url = "github:tshamsrakhmanov/dotfiles-vim";
+     flake = false;  # Not a flake
+   };
+   tmux-config = {
+     url = "github:tshamsrakhmanov/dotfiles-tmux";
+     flake = false;
+   };
+
   };
 
-  vim-config = {
-    url = "github:tshamsrakhmanov/dotfiles-vim";
-    flake = false;  # Not a flake
-  };
-  tmux-config = {
-    url = "github:tshamsrakhmanov/dotfiles-tmux";
-    flake = false;
-  };
 
   outputs = { self, nixpkgs, home-manager, tmux-config, vim-config, ... }@inputs:
     let

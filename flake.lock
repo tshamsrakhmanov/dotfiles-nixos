@@ -48,11 +48,11 @@
     "tmux-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1784110692,
-        "narHash": "sha256-NY1vGx0xMNFEWWgMHyr5jzAXvcXAnhn/JEK4kdJBp4I=",
+        "lastModified": 1784111600,
+        "narHash": "sha256-Jw4Xlo/nKvpUgbHGPISx/b7rXZjf/aBU7q7BIZe/fUI=",
         "owner": "tshamsrakhmanov",
         "repo": "dotfiles-tmux",
-        "rev": "7545bb608e59bfa4e303cc3791d04641890ca5e5",
+        "rev": "118dff92860b0c43f38541aa273b3bed0566c784",
         "type": "github"
       },
       "original": {

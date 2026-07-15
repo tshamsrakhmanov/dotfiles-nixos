@@ -33,15 +33,15 @@
       nixosConfigurations = {
         laptop-old = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = {
-            inherit tmux-config vim-config;
-          };
           modules = sharedModules ++ [ 
             ./hosts/laptop-old/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit tmux-config vim-config;
+              };
               home-manager.users.timur = import ./hosts/laptop-old/home.nix;
             }
           ];
@@ -54,6 +54,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit tmux-config vim-config;
+              };
               home-manager.users.timur = import ./hosts/laptop-new/home.nix;
             }
           ];
@@ -66,6 +69,9 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = {
+                inherit tmux-config vim-config;
+              };
               home-manager.users.timur = import ./hosts/machine-home/home.nix;
             }
           ];

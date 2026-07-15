@@ -33,7 +33,7 @@
             ll = "eza -al --color=always --group-directories-first --icons";
             zz = "exit";
             qq = "ps -eo pid,command | grep";
-            update = "sudo nixos-rebuild swtich --flake .";
+            update = "sudo nixos-rebuild switch --flake .";
             ".." = "cd .. && l";
         };
     };

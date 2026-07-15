@@ -18,7 +18,7 @@
     flake = false;
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, tmux-config, vim-config, ... }@inputs:
     let
       sharedModules = [
         ./modules/shared/users.nix

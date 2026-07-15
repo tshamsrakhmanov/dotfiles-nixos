@@ -1,14 +1,15 @@
 {
-  description = "NixOS";
+  description = "NixOS with Home Manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-outputs = { self, nixpkgs, ... }@inputs:
+
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       sharedModules = [
         ./modules/shared/users.nix
@@ -16,19 +17,51 @@ outputs = { self, nixpkgs, ... }@inputs:
         ./modules/shared/system_config.nix
         ./modules/shared/flake_enable.nix
       ];
+      
+      # Shared home-manager modules (optional)
+      #homeModules = [
+      #  ./home/modules/common.nix  # Create this if you want shared home config
+      #];
     in {
       nixosConfigurations = {
         laptop-old = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = sharedModules ++ [ ./hosts/laptop-old/configuration.nix ];
+          modules = sharedModules ++ [ 
+            ./hosts/laptop-old/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              # Configure home-manager for this host
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.timur = import ./hosts/laptop-old/home.nix;
+              # Or if you want to use the shared modules:
+              # home-manager.users.your-username = { ...homeModules, ...import ./hosts/laptop-old/home.nix };
+            }
+          ];
         };
         laptop-new = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = sharedModules ++ [ ./hosts/laptop-new/configuration.nix ];
+          modules = sharedModules ++ [ 
+            ./hosts/laptop-new/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.timur = import ./hosts/laptop-new/home.nix;
+            }
+          ];
         };
         machine-home = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = sharedModules ++ [ ./hosts/machine-home/configuration.nix ];
+          modules = sharedModules ++ [ 
+            ./hosts/machine-home/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.timur = import ./hosts/machine-home/home.nix;
+            }
+          ];
         };
       };
     };

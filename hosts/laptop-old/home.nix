@@ -6,7 +6,6 @@
 
     home.packages = [];
 
-
     programs.git = {
         enable = true;
         userName = "Timur Shamsrakhmanov";

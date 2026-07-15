@@ -40,7 +40,41 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "tmux-config": "tmux-config",
+        "vim-config": "vim-config"
+      }
+    },
+    "tmux-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783934186,
+        "narHash": "sha256-uJ6IXLJCTj+Wfi06bRbZLpGLlXZrUvHFHo8Q3tW4rKY=",
+        "owner": "tshamsrakhmanov",
+        "repo": "dotfiles-tmux",
+        "rev": "4d4a948af80170e4913b9514fc6f03811db970f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tshamsrakhmanov",
+        "repo": "dotfiles-tmux",
+        "type": "github"
+      }
+    },
+    "vim-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783944652,
+        "narHash": "sha256-uyC4FDTEY++4Hj1G/atTDc7twAMgb6fAkk9ZAG2xjRc=",
+        "owner": "tshamsrakhmanov",
+        "repo": "dotfiles-vim",
+        "rev": "2d57bdb63b61ae3c914235296346f74516946b03",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tshamsrakhmanov",
+        "repo": "dotfiles-vim",
+        "type": "github"
       }
     }
   },

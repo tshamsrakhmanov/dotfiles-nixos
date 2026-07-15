@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, tmux-config, vim-config, ... }:
 
 {
     home.username = "timur";

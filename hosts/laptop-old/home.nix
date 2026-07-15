@@ -19,6 +19,11 @@
 
     };
 
+    home.file = {
+        ".tmux.conf".source = "${tmux-config}/.tmux.conf";
+        ".vimrc".source = "${vim-config}/.vimrc";
+    };
+
 
     programs.bash = {
         enable = true;

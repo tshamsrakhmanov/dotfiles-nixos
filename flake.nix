@@ -43,13 +43,16 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               #home-manager.users.timur = import ./hosts/laptop-old/home.nix;
-              home-manager.users.timur = { ... } : {
-                imports = [ ./hosts/laptop-old/home.nix ];
-                home.file = {
-                  ".tmux.conf".source = "${tmux-config}/.tmux.conf";
-                  ".vimrc".source = "${vim-config}/.vimrc";
-                };
+              home-manager.users.timur = import ./hosts/laptop-old/home.nix {
+                inherit tmux-config vim-config;
               };
+              #home-manager.users.timur = { ... } : {
+              #  imports = [ ./hosts/laptop-old/home.nix ];
+              #  home.file = {
+              #    ".tmux.conf".source = "${tmux-config}/.tmux.conf";
+              #    ".vimrc".source = "${vim-config}/.vimrc";
+              #  };
+              #};
               # Or if you want to use the shared modules:
               # home-manager.users.your-username = { ...homeModules, ...import ./hosts/laptop-old/home.nix };
             }
